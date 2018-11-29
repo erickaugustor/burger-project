@@ -1,41 +1,41 @@
 export default {
 	ingredientes: [
 		{
-			ingrediente: 'alface',
+			nome: 'alface',
 			valor: 0.40,
 		},
 		{
-			ingrediente: 'bacon',
+			nome: 'bacon',
 			valor: 2.00,
 		},
 		{
-			ingrediente: 'hamburguer',
+			nome: 'hamburguer',
 			valor: 3.00,
 		},
 		{
-			ingrediente: 'ovo',
+			nome: 'ovo',
 			valor: 0.80,
 		},
 		{
-			ingrediente: 'queijo',
+			nome: 'queijo',
 			valor: 1.50,
 		}
 	],
 	lanches: [
 		{
-			lanche: 'x-bacon',
+			nome: 'x-bacon',
 			ingredientes: ['bacon', 'hamburguer', 'queijo'],
 		},
 		{
-			lanche: 'x-burguer',
+			nome: 'x-burguer',
 			ingredientes: ['hamburguer', 'queijo'],
 		},
 		{
-			lanche: 'x-egg',
+			nome: 'x-egg',
 			ingredientes: ['ovo', 'hamburguer', 'queijo'],
 		},
 		{
-			lanche: 'x-egg bacon',
+			nome: 'x-egg bacon',
 			ingredientes: ['ovo', 'bacon', 'hamburguer', 'queijo'],
 		}
 	],

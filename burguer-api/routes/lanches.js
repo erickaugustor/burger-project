@@ -12,10 +12,13 @@ routes.get('/', wrapAsync(async (req, res) => {
 }));
 
 routes.post('/', wrapAsync(async (req, res) => {
+  const { lanches } = data;
+
   const { error } = validateLanches(req.body);
   if (error) return res.status(400).send(error.details[0].message);
 
-  // Verify duplicates values before push
+  const hasEqual = lanches.filter(lanche => lanche.nome === req.body.nome);
+  if (hasEqual) return res.status(400).send('Has an equal');
 
   data.lanches.push(req.body);
   res.send(data.ingredientes);
