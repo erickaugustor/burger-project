@@ -24,19 +24,19 @@ export default {
 	lanches: [
 		{
 			lanche: 'x-bacon',
-			ingrediente: ['bacon', 'hamburguer', 'queijo'],
+			ingredientes: ['bacon', 'hamburguer', 'queijo'],
 		},
 		{
 			lanche: 'x-burguer',
-			ingrediente: ['hamburguer', 'queijo'],
+			ingredientes: ['hamburguer', 'queijo'],
 		},
 		{
 			lanche: 'x-egg',
-			ingrediente: ['ovo', 'hamburguer', 'queijo'],
+			ingredientes: ['ovo', 'hamburguer', 'queijo'],
 		},
 		{
 			lanche: 'x-egg bacon',
-			ingrediente: ['ovo', 'bacon', 'hamburguer', 'queijo'],
+			ingredientes: ['ovo', 'bacon', 'hamburguer', 'queijo'],
 		}
 	],
 };

@@ -1,13 +1,23 @@
 import express from 'express';
 
 import wrapAsync from '../middlewares/wrapAsync';
+import validateIngredientes from '../validations/ingredientes';
 
 import data from '../utils/data';
 
 const routes = express.Router();
 
 routes.get('/', wrapAsync(async (req, res) => {
-  //Test WISTON: throw 'erro';
+  res.send(data.ingredientes);
+}));
+
+routes.post('/', wrapAsync(async (req, res) => {
+  const { error } = validateIngredientes(req.body);
+  if (error) return res.status(400).send(error.details[0].message);
+  
+  // Verify duplicates values before push
+
+  data.ingredientes.push(req.body);
   res.send(data.ingredientes);
 }));
 
