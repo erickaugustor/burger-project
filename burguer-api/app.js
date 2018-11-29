@@ -34,3 +34,5 @@ app.use('/api/lanches', lanches);
 app.use(error);
 
 app.listen(port, () => console.log(`Listening on port ${port}...`));
+
+export default app;
