@@ -4,6 +4,7 @@ import bodyParser from 'body-parser';
 // import { initializerRouter, initAplication } from './config/init';
 
 import ingredientes from './routes/ingredientes';
+import lanches from './routes/lanches';
 
 import error from './middlewares/error';	
 
@@ -28,6 +29,7 @@ app.all('/api/*', function(req, res, next) {
 });
 
 app.use('/api/ingredientes', ingredientes);
+app.use('/api/lanches', lanches);
 
 app.use(error);
 
