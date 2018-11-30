@@ -4,7 +4,7 @@ import dataTest  from '../utils/dataTest';
 
 describe('Ingredientes', function() {
 
-	describe('GET /api/ingredientes', function() {
+	describe('GET: /api/ingredientes', function() {
 		it('should return an array of ingredients', function(done) {
 			request(app)
 				.get('/api/ingredientes')

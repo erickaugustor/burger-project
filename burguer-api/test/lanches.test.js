@@ -4,7 +4,7 @@ import dataTest  from '../utils/dataTest';
 
 describe('Lanches', function() {
 
-	describe('GET /api/lanches', function() {
+	describe('GET: /api/lanches', function() {
 		it('should return an array of lanches', function(done) {
 			request(app)
 				.get('/api/lanches')

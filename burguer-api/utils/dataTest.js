@@ -11,6 +11,7 @@ export default {
 		{
 			nome: 'hamburguer',
 			valor: 3.00,
+			promocao: true,
 		},
 		{
 			nome: 'ovo',
@@ -19,6 +20,7 @@ export default {
 		{
 			nome: 'queijo',
 			valor: 1.50,
+			promocao: true,
 		}
 	],
 	lanches: [
