@@ -9,8 +9,8 @@ describe('Desconto', function() {
 			chai.expect(desconto(['bacon'])).to.equal(1);
 			chai.expect(desconto(['bacon', 'ovo'])).to.equal(1);
 			chai.expect(desconto(['bacon', 'alface'])).to.equal(1);
-			chai.expect(desconto(['ovo', 'alface'])).to.equal(0.9);
-			chai.expect(desconto(['hambuguer', 'alface'])).to.equal(0.9);
+			chai.expect(desconto(['ovo', 'alface'])).to.be.an('object');
+			chai.expect(desconto(['hambuguer', 'alface'])).to.be.an('object');
 		});
 	});
   

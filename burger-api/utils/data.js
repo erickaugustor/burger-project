@@ -1,3 +1,4 @@
+/*
 export default {
 	ingredientes: [
 		{
@@ -42,3 +43,4 @@ export default {
 		}
 	],
 };
+*/

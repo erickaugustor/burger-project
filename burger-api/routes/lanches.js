@@ -3,7 +3,7 @@ import express from 'express';
 import wrapAsync from '../middlewares/wrapAsync';
 import validateLanches from '../validations/lanches';
 
-import data from '../utils/data';
+import * as data from '../utils/data.json';
 
 const routes = express.Router();
 
@@ -21,6 +21,8 @@ routes.post('/', wrapAsync(async (req, res) => {
   if (hasEqual) return res.status(400).send('Has an equal');
 
   data.lanches.push(req.body);
+  if(!postDataJSON(data)) return res.status(500).send('Couldnt save');
+
   res.send(data.ingredientes);
 }));
 

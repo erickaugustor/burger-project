@@ -1,6 +1,6 @@
 import request from 'supertest';
 import app from '../app';
-import dataTest  from '../utils/dataTest';
+import * as dataTest from '../utils/data.json';
 
 describe('Lanches', function() {
 

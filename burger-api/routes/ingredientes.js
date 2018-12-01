@@ -2,8 +2,9 @@ import express from 'express';
 
 import wrapAsync from '../middlewares/wrapAsync';
 import validateIngredientes from '../validations/ingredientes';
+import { postDataJSON } from '../services/apiServices';
 
-import data from '../utils/data';
+import * as data from '../utils/data.json';
 
 const routes = express.Router();
 
@@ -18,9 +19,11 @@ routes.post('/', wrapAsync(async (req, res) => {
   if (error) return res.status(400).send(error.details[0].message);
   
   const hasEqual = ingredientes.filter(ingrediente => ingrediente.nome === req.body.nome);
-  if (hasEqual) return res.status(400).send('Has an equal');
+  if (!hasEqual) return res.status(400).send('Has an equal');
 
   data.ingredientes.push(req.body);
+  if(!postDataJSON(data)) return res.status(500).send('Couldnt save');
+
   res.send(data.ingredientes);
 }));
 

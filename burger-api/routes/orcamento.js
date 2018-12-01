@@ -5,7 +5,7 @@ import validateOrcamento from '../validations/orcamento';
 import promocoesLimite from '../services/promocoes';
 import descontoLight from '../services/desconto';
 
-import data from '../utils/data';
+import * as data from '../utils/data.json';
 
 const routes = express.Router();
 
@@ -37,9 +37,11 @@ routes.post('/', wrapAsync(async (req, res) => {
       let quantidadeParaPagar = promocoesLimite(quantidadeItem, limiteDaPromocao);
       let valorDescontoItem = (quantidadeItem - quantidadeParaPagar) * infoIngredientes.valor;
 
-      ingredientesDaPromocao.push(itemPedido.nome);
-      descontoTotal = descontoTotal + valorDescontoItem;
-      quantidadeItem = quantidadeParaPagar;
+      if (quantidadeParaPagar != quantidadeItem) {
+        ingredientesDaPromocao.push(itemPedido.nome);
+        descontoTotal = descontoTotal + valorDescontoItem;
+        quantidadeItem = quantidadeParaPagar;
+      }
     };
 
     if (infoIngredientes) {
@@ -47,18 +49,18 @@ routes.post('/', wrapAsync(async (req, res) => {
     };
   });
 
-  let desconto = descontoLight(ingredientesPedidos);
+  const promocao = descontoLight(ingredientesPedidos);
 
-  if (desconto != 1) {
-    ingredientesDaPromocao.push('fit');
-    descontoTotal = descontoTotal + ((1 - desconto) * valorPagar);
-    valorPagar = valorPagar * desconto;
+  if (promocao != 1) {
+    ingredientesDaPromocao.push(promocao.nome);
+    descontoTotal = descontoTotal + ((1 - promocao.desconto) * valorPagar);
+    valorPagar = valorPagar * promocao.desconto;
   }
 
   relatorioFinal = {
     "promocoes": ingredientesDaPromocao,
     "total": valorPagar + descontoTotal,
-    "desconto": descontoTotal.toFixed(2),
+    "desconto": Number.parseFloat(descontoTotal.toFixed(2)),
     "pagar": valorPagar,
   }
 
