@@ -14,10 +14,22 @@ const getLanches = async () => {
     .get(endpoint.lanches)
     .then(data => data.body)
     .catch(err => err);
+};
+
+const postPedidoParaOrcar = async (pedido) => {
+  return await request
+    .post(endpoint.orcamento)
+    .post({
+      'Content-Type':'application/json'
+    })
+    .send(pedido)
+    .then(data => data)
+    .catch(err => err);
 }
 
 
 export {
   getIngredientes,
   getLanches,
+  postPedidoParaOrcar,
 };

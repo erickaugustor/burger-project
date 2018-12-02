@@ -8,11 +8,11 @@ const Burger = (props) => {
   let ingredientes = [];
 
   for (let [ingrediente, quantidade] of Object.entries(props.ingredientes)) {
-    if (quantidade) {
-      for (let i=0; i<quantidade; i++) {
-        ingredientes.push(<Ingredientes key={ingrediente + quantidade} type={ingrediente} />);
-      }
-    }
+    if (quantidade >= 0) {
+      for (let index=0; index < quantidade; index++) {
+        ingredientes.push(<Ingredientes key={ingrediente + index} type={ingrediente} />);
+      };
+    };
   };
 
   if (ingredientes.length === 0) {

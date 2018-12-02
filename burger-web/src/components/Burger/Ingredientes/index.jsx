@@ -17,19 +17,19 @@ class Ingredientes extends Component {
         )
         break;
       case('hamburguer'):
-        ingrediente = <div className={classes.Meat}></div>;
+        ingrediente = <div className={classes.Hamburguer}></div>;
         break;
       case('queijo'):
-        ingrediente = <div className={classes.Cheese}></div>;
+        ingrediente = <div className={classes.Queijo}></div>;
         break;
       case('bacon'):
-        ingrediente = <div className={classes.Meat}></div>;
+        ingrediente = <div className={classes.Bacon}></div>;
         break;
       case('alface'):
-        ingrediente = <div className={classes.Salad}></div>;
+        ingrediente = <div className={classes.Alface}></div>;
         break;
       case('ovo'):
-        ingrediente = <div className={classes.Cheese}></div>;
+        ingrediente = <div className={classes.Ovo}></div>;
         break;
       case('pao-inferior'):
         ingrediente = <div className={classes.BreadBottom}></div>
@@ -43,7 +43,7 @@ class Ingredientes extends Component {
 };
 
 Ingredientes.propTypes = {
-  type: PropTypes.string.isRequired
+  type: PropTypes.string.isRequired,
 };
 
 export default Ingredientes;

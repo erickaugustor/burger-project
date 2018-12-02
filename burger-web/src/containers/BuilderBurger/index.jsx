@@ -1,5 +1,5 @@
-import React, { Component, Fragment } from 'react';
-import { getIngredientes } from '../../services/apiServices';
+import React, { Component } from 'react';
+import { getIngredientes, getLanches, postPedidoParaOrcar } from '../../services/apiServices';
 
 import style from './index.css';
 
@@ -11,6 +11,7 @@ class BuilderBurger extends Component {
     super(props);
     this.state = {
       ingredientes: [],
+      lanches: [],
       pedidoIngredientes: {},
     }
   }
@@ -37,6 +38,20 @@ class BuilderBurger extends Component {
     this.setState({pedidoIngredientes: pedido})
   };
 
+  realizarPedidoHandler = () => {
+    const { pedidoIngredientes } = this.state;
+    const pedidoParaOrcar = {
+      pedido: [],
+    };
+
+    for (let [ingrediente, quantidade] of Object.entries(pedidoIngredientes)) {
+      pedidoParaOrcar.pedido.push({ nome: ingrediente, quantidade: quantidade });
+    };
+
+    postPedidoParaOrcar(pedidoParaOrcar);
+
+  };
+
   componentDidMount() {
     getIngredientes()
       .then(items => {
@@ -44,16 +59,24 @@ class BuilderBurger extends Component {
         items.forEach(item => pedidoIngredientes[item.nome] = 0);
         this.setState({ingredientes: items, pedidoIngredientes})
       })
-      .catch(this.setState({ingredientes: []}));
+      .catch(this.setState({ ingredientes: [] }));
+
+    getLanches()
+      .then(items => {
+        this.setState({ lanches: items })
+      })
+      .catch(this.setState({ lanches: [] }));
   };
 
   render () {
-    const { ingredientes, pedidoIngredientes } = this.state;
+    const { ingredientes, pedidoIngredientes, lanches } = this.state;
     
     return (
       <aside className={style.layout}>
         <Pedidos 
           ingredientes={ingredientes}
+          lanches={lanches}
+          realizarPedido={this.realizarPedidoHandler}
           add={this.adicionarIngredientesHandler}
           remove={this.removerIngredientesHandler}
         />

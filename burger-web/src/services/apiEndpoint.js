@@ -1,6 +1,7 @@
-const locaction = 'http://localhost:3006/api'
+const location = 'http://localhost:3006/api'
 
 export default {
-  ingredientes: `${locaction}/ingredientes`,
-  lanches: `${locaction}/lanches`,
+  ingredientes: `${location}/ingredientes`,
+  lanches: `${location}/lanches`,
+  orcamento: `${location}/orcamento`,
 };
