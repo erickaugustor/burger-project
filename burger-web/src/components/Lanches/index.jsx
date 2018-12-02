@@ -1,13 +1,9 @@
 import React from 'react';
 
-import style from './index.css';
-
 const Lanches = (props) => (
   <div>
-    <button 
-      className={style.menos}
-    >
-      {props.nome}
+    <button onClick={props.lancheHandler}>
+      { props.nome }
     </button>
   </div>
 );

@@ -24,19 +24,25 @@ const Pedidos = (props) => (
 
     <p> Escolha seus ingredientes: </p>
 
+    <div className={styles.lanches}>
     {
       props.lanches && props.lanches.map((lanches, index) => {
-        return <Lanches nome={lanches.nome} />
+        return <Lanches
+          key={index}
+          nome={lanches.nome}
+          lancheHandler={() => props.lancheHandler(lanches)}
+        />
       })
-    }
-
+    }          
+    </div>
 
     <p> Faça seu pedido: </p>
-
-    <button>
-      Peça
-    </button>
-
+    <div className={styles.orcar}>
+      <input type="text" placeholder="Digite seu nome" />
+      <button>
+        Peça
+      </button>
+    </div>
   </section>
 );
 

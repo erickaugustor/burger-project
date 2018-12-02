@@ -6,7 +6,26 @@
   align-items: center;
   box-shadow: 0 2px 1px #ccc;
   margin: auto;
-  padding: 10px 0;
+  padding: 15px 0;
+}
+
+.lanches {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
+.pedidos input {
+  font-size:1 8px;
+  padding: 5px 5px 5px 2px;
+  border-radius: 5px;
+  display: block;
+  border: none;
+  border-bottom: 1px solid #757575;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, .6);
+}
+
+.pedidos input:focus {
+  outline:none;
 }
 
 .pedidos button {
@@ -20,7 +39,7 @@
   width: 100px;
   cursor: pointer;
   outline: none;
-  margin: 5px;
+  margin: 2px;
   transition: background-color .3s;
 }
 
@@ -45,4 +64,9 @@
 .pedidos button:hover, .pedidos button:active {
   color: white;
   background-color: rgb(99, 99, 99);
+}
+
+.orcar {
+  display: grid;
+  grid-template-columns: 70% 20%;
 }

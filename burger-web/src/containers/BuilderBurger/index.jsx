@@ -52,6 +52,16 @@ class BuilderBurger extends Component {
 
   };
 
+  lanchesProntosHandler = (lanche) => {
+    const novosIngredientes = {};
+
+    lanche.ingredientes.forEach(ingrediente => {
+      novosIngredientes[ingrediente] = 1;
+    });
+
+    this.setState({ pedidoIngredientes: novosIngredientes });
+  }
+
   componentDidMount() {
     getIngredientes()
       .then(items => {
@@ -79,8 +89,11 @@ class BuilderBurger extends Component {
           realizarPedido={this.realizarPedidoHandler}
           add={this.adicionarIngredientesHandler}
           remove={this.removerIngredientesHandler}
+          lancheHandler={this.lanchesProntosHandler}
         />
-        <Burger ingredientes={pedidoIngredientes} />
+        <Burger 
+          ingredientes={pedidoIngredientes}
+        />
       </aside>
     );
   };
