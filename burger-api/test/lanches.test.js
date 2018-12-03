@@ -3,7 +3,6 @@ import app from '../app';
 import * as dataTest from '../utils/data.json';
 
 describe('Lanches', function() {
-
 	describe('GET: /api/lanches', function() {
 		it('should return an array of lanches', function(done) {
 			request(app)
@@ -14,5 +13,4 @@ describe('Lanches', function() {
 				.end(done);
 		});
 	});
-  
 });
