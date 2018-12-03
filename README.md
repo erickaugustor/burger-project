@@ -9,7 +9,6 @@ First you should open your terminal and go to the burger-api paste and start the
 ```
 npm run test
 npm run start
-
 ```
 The server will open on localhost:3006
 
@@ -17,7 +16,6 @@ After that, you should open the burger-web folder and start the project to obser
 
 ```
 npm run start
-
 ```
 
 ## Code Explanations
@@ -30,14 +28,18 @@ The project routes:
 
 ```
 - GET /api/ingredientes
+
 - POST /api/ingredientes
+
 {
   "nome": "picanha",
   "valor": 2
 }
 
 - GET /api/lanches
+
 - POST /api/lanches
+
 Example for POSTMAN: 
 {
   "nome": "x-picanha",
@@ -49,16 +51,17 @@ Example for POSTMAN:
 }
 
 - POST /api/orcamentos
+
 Example for POSTMAN: 
 {
-	"nome": "erick",
-	"pedido": [{
-		"nome": "queijo",
-		"quantidade": 4
-	  }, {
-		"nome": "alface",
-		"quantidade": 1
-	}]
+"nome": "erick",
+"pedido": [{
+    "nome": "queijo",
+    "quantidade": 4
+  }, {
+    "nome": "alface",
+    "quantidade": 1
+  }]
 }
 ```
 
@@ -74,9 +77,9 @@ I also used a JSON file where it was possible to write data and how routes could
 
 ```
 {
-	"ingredientes": [{}],
+  "ingredientes": [{}],
   "lanches": [{}],
-	"pedidos": [{}]
+  "pedidos": [{}]
 }
 ```
 
@@ -87,10 +90,12 @@ The WEB part was made in React, so it was possible to have a better control of t
 A library called Superagent was also used to be able to connect to the API and use its data to render the orders on the screen.
 
 ```
-_In both the API and the WWW, functions were used that had specific functions in the system, so the logic would be concentrated in one point of the application._
+In both the API and the WWW, functions were used that had specific functions in the system, so the logic would be concentrated in one point of the application.
 ```
 
 We used some CSS and layout concepts to develop a UI for the project. I have used and adapted some CSS classes to fit the project.
+
+![alt text](https://i.imgur.com/9VjMkDR.png)
 
 Validations were performed with propTypes to ensure data integrity in React components.
 
