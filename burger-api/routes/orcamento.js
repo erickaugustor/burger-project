@@ -4,6 +4,7 @@ import wrapAsync from '../middlewares/wrapAsync';
 import validateOrcamento from '../validations/orcamento';
 import promocoesLimite from '../services/promocoes';
 import descontoLight from '../services/desconto';
+import { postDataJSON } from '../services/apiServices';
 
 import * as data from '../utils/data.json';
 
@@ -11,7 +12,7 @@ const routes = express.Router();
 
 routes.post('/', wrapAsync(async (req, res) => {
   const { ingredientes } = data;
-  const { pedido } = req.body;
+  const { pedido, nome } = req.body;
   const limiteDaPromocao = 3;
 
   let ingredientesPedidos = [];
@@ -58,11 +59,15 @@ routes.post('/', wrapAsync(async (req, res) => {
   }
 
   relatorioFinal = {
+    "nome": nome,
     "promocoes": ingredientesDaPromocao,
     "total": valorPagar + descontoTotal,
     "desconto": Number.parseFloat(descontoTotal.toFixed(2)),
     "pagar": valorPagar,
   }
+
+  data.pedidos.push(relatorioFinal);
+  if(!postDataJSON(data)) return res.status(500).send('Couldnt save');
 
   res.send(relatorioFinal);
 }));

@@ -19,7 +19,7 @@ const getLanches = async () => {
 const postPedidoParaOrcar = async (pedido) => {
   return await request
     .post(endpoint.orcamento)
-    .post({
+    .set({
       'Content-Type':'application/json'
     })
     .send(pedido)

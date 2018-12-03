@@ -13,6 +13,7 @@ class BuilderBurger extends Component {
       ingredientes: [],
       lanches: [],
       pedidoIngredientes: {},
+      nomeCliente: '',
     }
   }
 
@@ -38,9 +39,10 @@ class BuilderBurger extends Component {
     this.setState({pedidoIngredientes: pedido})
   };
 
-  realizarPedidoHandler = () => {
+  realizarPedidoHandler = (nome) => {
     const { pedidoIngredientes } = this.state;
     const pedidoParaOrcar = {
+      nome,
       pedido: [],
     };
 
@@ -48,8 +50,9 @@ class BuilderBurger extends Component {
       pedidoParaOrcar.pedido.push({ nome: ingrediente, quantidade: quantidade });
     };
 
-    postPedidoParaOrcar(pedidoParaOrcar);
-
+    postPedidoParaOrcar(pedidoParaOrcar)
+      .then(data => alert(JSON.stringify(data.body)))
+      .catch(err => console.log(err));
   };
 
   lanchesProntosHandler = (lanche) => {
@@ -60,7 +63,7 @@ class BuilderBurger extends Component {
     });
 
     this.setState({ pedidoIngredientes: novosIngredientes });
-  }
+  };
 
   componentDidMount() {
     getIngredientes()
@@ -89,7 +92,7 @@ class BuilderBurger extends Component {
           realizarPedido={this.realizarPedidoHandler}
           add={this.adicionarIngredientesHandler}
           remove={this.removerIngredientesHandler}
-          lancheHandler={this.lanchesProntosHandler}
+          lanchesProntos={this.lanchesProntosHandler}
         />
         <Burger 
           ingredientes={pedidoIngredientes}

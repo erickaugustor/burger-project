@@ -2,6 +2,7 @@ import Joi from 'joi';
 
 export default (orcamento) => {
 	const schema = {
+		nome: Joi.string().required(),
 		pedido: Joi.array().items(
 			Joi.object({
 				nome: Joi.string().required(),

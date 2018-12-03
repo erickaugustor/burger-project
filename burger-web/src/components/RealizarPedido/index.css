@@ -1,0 +1,8 @@
+.orcar {
+  display: grid;
+  grid-template-columns: 70% 20%;
+}
+
+.disabled {
+  cursor: not-allowed;
+}

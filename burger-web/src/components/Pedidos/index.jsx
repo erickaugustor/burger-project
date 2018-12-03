@@ -3,18 +3,20 @@ import PropTypes from 'prop-types';
 
 import Pedido from './Pedido';
 import Lanches from '../Lanches';
+import RealizarPedido from '../RealizarPedido';
 
 import styles from './index.css';
 
 const Pedidos = (props) => (
   <section className={styles.pedidos}>
-    <p> Escolha seus ingredientes: </p>
+    <h4> Escolha seus ingredientes: </h4>
   
     { 
       props.ingredientes && props.ingredientes.map((ingrediente, index) => {
         return <Pedido 
-          label={ingrediente.nome}
-          disabled={ingrediente.quantidade <= 0 }
+          nome={ingrediente.nome}
+          valor={ingrediente.valor}
+          desativado={ingrediente.quantidade <= 0 }
           add={() => props.add(ingrediente.nome)}
           remove={() => props.remove(ingrediente.nome)}
           key={index}
@@ -22,7 +24,7 @@ const Pedidos = (props) => (
       })
     }
 
-    <p> Escolha seus ingredientes: </p>
+    <h4> Prefere escolher um dos nossos lanches já prontos? </h4>
 
     <div className={styles.lanches}>
     {
@@ -30,19 +32,19 @@ const Pedidos = (props) => (
         return <Lanches
           key={index}
           nome={lanches.nome}
-          lancheHandler={() => props.lancheHandler(lanches)}
+          lanchesProntos={() => props.lanchesProntos(lanches)}
         />
       })
     }          
     </div>
 
-    <p> Faça seu pedido: </p>
-    <div className={styles.orcar}>
-      <input type="text" placeholder="Digite seu nome" />
-      <button>
-        Peça
-      </button>
-    </div>
+    <h4> Faça seu pedido: </h4>
+    
+    <RealizarPedido 
+      inputText="Digite seu nome"
+      realizarPedido={props.realizarPedido}
+      tituloBotao="Peça!"
+    />
   </section>
 );
 

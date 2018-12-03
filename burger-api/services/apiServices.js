@@ -1,7 +1,7 @@
 import fs from 'fs';
 
-const postDataJSON = (data) => {
-	fs.writeFile('./utils/data.json', JSON.stringify(data), 'utf8', (err) => {
+const postDataJSON = (data, local='./utils/data.json') => {
+	fs.writeFile(local, JSON.stringify(data), 'utf8', (err) => {
 		if (err) {
 			return -1;
 		}

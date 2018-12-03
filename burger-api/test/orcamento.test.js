@@ -8,6 +8,7 @@ describe('Orçamento', function() {
 			request(app)
 				.post('/api/orcamento')
 				.send({
+					'nome': 'erick',
 					'pedido': [
 						{
 							'nome': 'queijo',
@@ -21,6 +22,7 @@ describe('Orçamento', function() {
 				.expect(200)
 				.expect('Content-Type', /json/)
 				.expect({
+					'nome': 'erick',
 					'promocoes': [
 						'fit'
 					],

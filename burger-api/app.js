@@ -26,7 +26,7 @@ app.all('/api/*', function(req, res, next) {
 	if (req.method.toLowerCase() !== 'options') {
 		return next();
 	}
-	return res.send(204);
+	return res.sendStatus(204);
 });
 
 app.use('/api/ingredientes', ingredientes);

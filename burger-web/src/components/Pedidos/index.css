@@ -1,3 +1,9 @@
+
+.lanches {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
 .pedidos {
   width: 100%;
   background-color: #a9a9a9;
@@ -7,11 +13,6 @@
   box-shadow: 0 2px 1px #ccc;
   margin: auto;
   padding: 15px 0;
-}
-
-.lanches {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
 }
 
 .pedidos input {
@@ -55,7 +56,6 @@
   cursor: not-allowed;
 }
 
-
 .pedidos button:hover, .pedidos button:active {
   color: white;  
   background-color: rgb(65, 65, 65);
@@ -66,7 +66,3 @@
   background-color: rgb(99, 99, 99);
 }
 
-.orcar {
-  display: grid;
-  grid-template-columns: 70% 20%;
-}
